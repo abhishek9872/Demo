@@ -125,13 +125,33 @@ public:
 
 class Loan : public Customer {
     double loanAmount;
+    string name;
     string loanType;
+    long p,r,t,SI,loan;
+    public :
+    void TakeLoan()
+    {
+        
+    cout <<"Enter your name "<<endl;
+    cin>>name;
+    cout<<"Enter Principle amount"<<endl;
+    cin>>p;
+    cout<<"Enter rate "<<endl;
+    cin>>r;
+    cout<<"Enter periode"<<endl;
+    cin>>t;
+    loanAmount = p + (p * r * t) / 100;
+
+        cout << "Loan amount is: " << loanAmount << endl;
+        am += loanAmount;
+        cout << "Loan taken successfully." << endl;
+    }
 };
 
 int Account::totalbalance = 0;
 
 int main() {
-    Account a1;
+    Loan a1;
 
     int ch;
     do {
@@ -154,6 +174,8 @@ int main() {
             case 3:
                 a1.deposit(a1.am);
                 break;
+            case 4:
+                a1.TakeLoan();
             case 6:
                 a1.display();
                 break;
